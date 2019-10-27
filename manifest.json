@@ -1,0 +1,28 @@
+"manifest_version": 1
+
+"name": "Splash & Smash"
+
+"description": "SMASH AND SPLASH is the perfect weekend getaway which includes an International Standard theme park, a water park and a premium hotel."
+
+"developer": {
+  "name": "Manita Pasi",
+  "url": "www.linkedin.com/in/manita0311",
+  "name": "Rahul Shirolkar",
+  "url": "www.linkedin.com/in/shirolkarahul",
+  "name": "Sayli Mhatre",
+  "url": "www.linkedin.com/in/saylim08",
+}
+
+"commands": {
+  "toggle-feature": {
+    "suggested_key": {
+      "default": "Ctrl+Shift+Y",
+      "linux": "Ctrl+Shift+U"
+    },
+    "description": "Send a 'toggle-feature' event"
+  }
+}
+
+"homepage_url": ""
+
+"offline_enabled": false 

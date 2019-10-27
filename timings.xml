@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATALOG>
+    <CD>
+        <TITLE>Dark ride</TITLE>
+        <CLOSE>2:00pm</CLOSE>
+        <TIMINGS>10:00am</TIMINGS>
+    </CD>
+    <CD>
+        <TITLE>Drop tower</TITLE>
+        <CLOSE>4:00pm</CLOSE>
+        <TIMINGS>10:00am</TIMINGS>
+    </CD>
+    <CD>
+        <TITLE>Swing ride</TITLE>
+        <CLOSE>4:00pm</CLOSE>
+        <TIMINGS>8:00am</TIMINGS>
+    </CD>
+    <CD>
+        <TITLE>Water ride</TITLE>
+        <CLOSE>2:00pm</CLOSE>
+        <TIMINGS>10:00am</TIMINGS>
+    </CD>
+    <CD>
+        <TITLE>Tilt-A-Whirl</TITLE>
+        <CLOSE>4:00pm</CLOSE>
+        <TIMINGS>8:00am</TIMINGS>
+    </CD>
+</CATALOG>

@@ -1,0 +1,2 @@
+
+insert into users values(1,"Sayli","sayli0810",MD5('123456'));
