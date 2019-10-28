@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("db.php");
-echo "" . $_SESSION["admin_id"] . ".<br>";
+// echo $_SESSION["admin_id"] . ".<br>";
 if ( isset( $_POST['signinbtn'] ) ) {
     if ( isset( $_POST['username'] ) && isset( $_POST['passwd'] ) ) {
         
@@ -14,15 +14,9 @@ if ( isset( $_POST['signinbtn'] ) ) {
         // Verify user password and set $_SESSION
         if ( md5($_POST['passwd']) == $user->passwd ) {
             $_SESSION['admin_id'] = $user->username;
-            // if(isset($_POST["remember_me"])){
-            //     if($_POST["remember_me"]=='1' || $_POST["remember_me"]=='on'){
-            //         $hour = time() + 3600 * 24 * 30;
-            //         setcookie('username', $_POST['username'], $hour);
-            //         setcookie('password', md5($_POST['passwd']), $hour);
-            //     }
-            // }
             echo "<script>console.log('".$_SESSION['admin_id']."');</script>";
-            header("location:index.php"); 
+            echo "<script type='text/javascript'> document.location = 'adminpanel.php'; </script>";
+            header("location:adminpanel.php"); 
         }else{
             echo "<script>alert('Invalid Login Details!');</script>";
         }
@@ -36,6 +30,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 <head>
 	<title>Admin - Splash and Smash</title>
     <link rel="icon" href="images/logo1.png" type="image/png" sizes="25x25">
+    <link rel="stylesheet" href="css/w3.css">
 	<style>
         body {
             background: url(images/timing-img.jpg) no-repeat center center fixed; 
@@ -49,7 +44,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 </head>
 
 <body >
-
+<a href="index.php" class='w3-button w3-blue' style="margin-top: 15px; margin-right: 15px;float:right">Visit site</a>
 <div class="login-page">
   <div class="form">
     <form class="login-form" method="post">

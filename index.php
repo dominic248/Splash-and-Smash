@@ -29,7 +29,7 @@
 	<meta name="keywords" content="" />
 	<link rel="icon" href="images/logo1.png" type="image/png" sizes="25x25">
 	<link rel="manifest" href="manifest.json">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="css/w3.css">
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -123,6 +123,7 @@
 								</li>
 								<li><a href="#contact" class="scroll wow fadeInRight" data-wow-delay="2.8s">Contact</a>
 								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -303,7 +304,11 @@
 
 	<script>
 		function loadXMLDoc() {
-			document.getElementById("demo").style.display = "table";
+			if(document.getElementById("demo").style.display=="none"){
+				document.getElementById("demo").style.display = "table";
+			}else{
+				document.getElementById("demo").style.display = "none";
+			}
 		}
 		
 	</script>
@@ -627,6 +632,8 @@
 
 				<div class="footer">
 					<p>© 2019 Smash and Splash. All Rights Reserved </a></p>
+					<strong><a href="admin.php" style="color:red">Admin Panel</a></strong>
+	
 				</div>
 
 			</div>

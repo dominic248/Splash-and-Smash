@@ -12,5 +12,5 @@ if (!isset($_SESSION['user_id'])){
 
 
 header("location:index.php"); 
-echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+echo "<script type='text/javascript'> document.location = 'admin.php'; </script>";
 ?>
