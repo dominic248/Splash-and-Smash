@@ -284,6 +284,8 @@
 						if ($.trim(response) == "inserted") {
 							alert("Booked Successfully!");
 							clearBookForm();
+						} else if ($.trim(response) == "inserteddeleted") {
+							alert("Ticket cannot be booked!");
 						} else if ($.trim(response) == "updated") {
 							alert("Ticket Booking Updated Successfully!");
 							clearBookForm();
@@ -632,7 +634,7 @@
 
 				<div class="footer">
 					<p>© 2019 Smash and Splash. All Rights Reserved </a></p>
-					<strong><a href="admin.php" style="color:red">Admin Panel</a></strong>
+					<strong><a href="adminpanel.php" style="color:red">Admin Panel</a></strong>
 	
 				</div>
 

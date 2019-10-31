@@ -31,6 +31,8 @@ include("db.php");
                     "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }
             }
+        }else if($tickets==0 || $adult==0 || $child==0){
+            echo "inserteddeleted";
         }else{
             $sql="insert into book(visitor_name,Vdate,total_tickets,adult,child) values ('$vName','$datapicker',$tickets,$adult,$child);";
             if(mysqli_query($link, $sql)){
