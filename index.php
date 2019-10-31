@@ -27,7 +27,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="" />
-	<link rel="icon" href="images/logo1.png" type="image/png" sizes="25x25">
+	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" >
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" href="css/w3.css">
 	<script type="application/x-javascript">
