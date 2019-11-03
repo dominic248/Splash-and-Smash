@@ -16,7 +16,7 @@ include("db.php");
         $sql = "SELECT * FROM book where visitor_name='$vName' and Vdate='$datapicker';";
         $result = mysqli_query($link,$sql);
         if (mysqli_num_rows($result) > 0) {
-            if($tickets==0 || $adult==0 || $child==0){
+            if($tickets==0 && $adult==0 && $child==0){
                 $sql = "DELETE FROM book WHERE visitor_name='$vName' and Vdate='$datapicker';";
                 if (mysqli_query($link, $sql)) {
                     echo "deleted";
@@ -31,7 +31,7 @@ include("db.php");
                     "ERROR: Could not able to execute $sql. " . mysqli_error($link);
                 }
             }
-        }else if($tickets==0 || $adult==0 || $child==0){
+        }else if($tickets==0 && $adult==0 && $child==0){
             echo "inserteddeleted";
         }else{
             $sql="insert into book(visitor_name,Vdate,total_tickets,adult,child) values ('$vName','$datapicker',$tickets,$adult,$child);";

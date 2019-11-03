@@ -1,0 +1,28 @@
+.divide .reservation{
+    width: 100%;
+}
+.divide .reservation-name {
+    width: 57%;
+}
+.divide .date-pike {
+    width: 40%;
+}
+.reservation .columns{
+    width:32%;
+    display: inline-block;
+}
+
+@media screen and (max-width:600px){
+    .divide .reservation-name {
+        width: 100%;
+    }
+    .divide .date-pike {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:458px){
+    .reservation .columns{
+        width:100%;
+    }
+}

@@ -22,6 +22,9 @@
 			left: 50%;
 			margin: -150px 0 0 -150px;
 		}
+		.wow{
+			visibility:visible !important;
+		}
 	</style>
 	<!--for-mobile-apps-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,6 +33,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" >
 	<link rel="manifest" href="manifest.json">
 	<link rel="stylesheet" href="css/w3.css">
+	<link rel="stylesheet" href="css/form.css">
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -108,7 +112,7 @@
 						<div class="collapse navbar-collapse " id="myNavbar">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="active"><a href="#home" class="scroll wow fadeInRight"
-										data-wow-delay=".3s">Home</a></li>
+										data-wow-delay=".3s" >Home</a></li>
 								<li><a href="#about" class="scroll wow fadeInRight" data-wow-delay="0.7s">About Us</a>
 								</li>
 								<li><a href="#booking" class="scroll wow fadeInRight" data-wow-delay="2.4s">Online
@@ -199,7 +203,7 @@
 				<h3>Online Ticket Booking </h3>
 				<div class="main">
 					<div class="facts">
-						<div>
+						<div class="divide">
 							<div class="reservation-name">
 								<h5>Visitor Name </h5>
 								<input type="text" id="vName" value="" onfocus="this.value = '';"
