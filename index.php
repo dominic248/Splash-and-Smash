@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -105,7 +108,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand logo" href="#"><img src="./images/finlog.png" text="SMASH&SPLASH"
+							<a class="navbar-brand logo" href="#"><img src="images/finlog.png" text="SMASH&SPLASH"
 									alt="finlog image"></a>
 						</div>
 
@@ -115,7 +118,7 @@
 										data-wow-delay=".3s" >Home</a></li>
 								<li><a href="#about" class="scroll wow fadeInRight" data-wow-delay="0.7s">About Us</a>
 								</li>
-								<li><a href="#booking" class="scroll wow fadeInRight" data-wow-delay="2.4s">Online
+								<li><a href="onlinebooking.php" class="wow fadeInRight" data-wow-delay="2.4s">Online
 										Booking</a></li>
 								<li><a href="#timing" class="scroll wow fadeInRight" data-wow-delay="1.1s">Timings</a>
 								</li>
@@ -125,9 +128,16 @@
 										Price</a></li>
 								<li><a href="#gallery" class="scroll wow fadeInRight" data-wow-delay="2.1s">Gallery</a>
 								</li>
-								<li><a href="#contact" class="scroll wow fadeInRight" data-wow-delay="2.8s">Contact</a>
-								</li>
 								
+					<?php
+                        if ( isset( $_SESSION['user_id'] ) ) {
+                            echo "<li><a href='logout.php' class='wow fadeInRight' data-wow-delay='2.8s'>Logout</a>
+							</li>";
+                        } else {
+                            echo "<li><a href='login.php' class='wow fadeInRight' data-wow-delay='2.8s'>Login</a>
+							</li>";
+                        } 
+                    ?>
 							</ul>
 						</div>
 					</div>
@@ -197,115 +207,9 @@
 		</table>
 	</center>
 	
-	<div class="booking" id="booking">
-		<div class="container">
-			<div class="booking-padding">
-				<h3>Online Ticket Booking </h3>
-				<div class="main">
-					<div class="facts">
-						<div class="divide">
-							<div class="reservation-name">
-								<h5>Visitor Name </h5>
-								<input type="text" id="vName" value="" onfocus="this.value = '';"
-									onblur="if (this.value == '') {this.value = 'Name';}" required="">
-							</div>
-							<div class="date-pike">
-								<h5>Date of Visit </h5>
-								<input class="date" id="datepicker" type="text" value="" onfocus="this.value = '';"
-									onblur="if (this.value == '') {this.value = 'dd/mm/yyyy';}" required="">
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="reservation">
-							<div class="groups">
-								<div class="grid_4 columns">
-									<h5>Total Tickets</h5>
-									<select class="custom-select" id="tickets">
-										<option selected="selected">0</option>
-										<?php
-											for($i = 1; $i<=40; $i++) {
-												echo "<option>$i</option>";    
-											}
-										?>
-									</select>
-								</div>
-								<div class="grid_5 columns">
-									<h5>Adults</h5>
-									<select class="custom-select" id="adult">
-										<option selected="selected">0</option>
-										<?php
-											for($i = 1; $i<=20; $i++) {
-												echo "<option>$i</option>";    
-											}
-										?>
-									</select>
-								</div>
-								<div class="grid_6 columns">
-									<h5>Child</h5>
-									<select class="custom-select" id="child">
-										<option selected="selected">0</option>
-										<?php
-											for($i = 1; $i<=20; $i++) {
-												echo "<option>$i</option>";    
-											}
-										?>
-									</select>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-						<div class="date_btn">
-							<input type="submit" value="Book" id="btnSubmit" onclick="book();">
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	
 
-	<script>
-		function clearBookForm(){
-			$("#vName").val("");
-			$("#datepicker").val(null);
-			$("#tickets").val(null);
-			$("#adult").val(null);
-			$("#child").val(null);
-		}
-		function book() {
-			if ($("#btnSubmit").val() == "Book") {
-				$.ajax({
-					type: "POST",
-					url: "saveBookings.php",
-					data: {
-						vName: $("#vName").val(),
-						datepicker: $("#datepicker").val(),
-						tickets: $("#tickets").val(),
-						adult: $("#adult").val(),
-						child: $("#child").val()
-					},
-					success: function (response) {
-						console.log(response);
-						if ($.trim(response) == "inserted") {
-							alert("Booked Successfully!");
-							clearBookForm();
-						} else if ($.trim(response) == "inserteddeleted") {
-							alert("Ticket cannot be booked!");
-						} else if ($.trim(response) == "updated") {
-							alert("Ticket Booking Updated Successfully!");
-							clearBookForm();
-						} else if ($.trim(response) == "deleted") {
-							alert("Ticket Booking Cancelled Successfully!");
-							clearBookForm();
-						}else if ($.trim(response) == "incorrect") {
-							alert("Invalid Ticket Entry!");
-						} else {
-							alert("Error! Something Went Wrong...");
-						}
-					}
-				});
-			}
-		}
-	</script>
+	
 
 
 	<script>
@@ -672,11 +576,7 @@
 	<!--strat-date-piker-->
 	<link rel="stylesheet" href="css/jquery-ui.css" />
 	<script src="js/jquery-ui.js"></script>
-	<script>
-		$(function () {
-			$("#datepicker,#datepicker1").datepicker();
-		});
-	</script>
+
 	<!--/End-date-piker-->
 
 	<!-- Slide-To-Top JavaScript (No-Need-To-Change) -->

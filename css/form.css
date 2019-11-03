@@ -1,11 +1,32 @@
+.divide div, .reservation .columns div{
+    padding: 1px;
+}
+
 .divide .reservation{
     width: 100%;
 }
-.divide .reservation-name {
-    width: 57%;
+.divide .field input {
+    width: 100%;
 }
-.divide .date-pike {
-    width: 40%;
+.divide .field2 input {
+    width: 100%;
+}
+.divide .field1 input {
+    width: 100%;
+}
+.divide .field {
+    width: 100%;
+    float: left;
+}
+.divide .field2{
+    width: 49%;
+    
+    float: right;
+}
+.divide .field1 {
+    width: 49%;
+    display: inline-block;
+    float: left;
 }
 .reservation .columns{
     width:32%;
@@ -13,10 +34,10 @@
 }
 
 @media screen and (max-width:600px){
-    .divide .reservation-name {
+    .divide .field1 {
         width: 100%;
     }
-    .divide .date-pike {
+    .divide .field2 {
         width: 100%;
     }
 }
@@ -25,4 +46,18 @@
     .reservation .columns{
         width:100%;
     }
+}
+
+.error{
+    color:transparent;
+    display: block;
+    font-size: 14px;
+    float:left
+}
+
+.empty~.error {
+    color:transparent;
+}
+.notempty:invalid~.error {
+    color: red;
 }

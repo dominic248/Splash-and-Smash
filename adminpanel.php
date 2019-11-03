@@ -6,19 +6,18 @@ session_start();
 <head>
     <?php
     include("db.php");
-      if ( isset( $_SESSION['admin_id'] ) ) {
+      if ( isset( $_SESSION['user_id'] ) &&  $_SESSION['isadmin']==1) {
           // Grab user data from the database using the user_id
           // Let them access the "logged in only" pages
-      } else {
+      } else if ( isset( $_SESSION['user_id'] ) &&  $_SESSION['isadmin']==0) {
+        echo "<script type='text/javascript'> document.location = 'index.php'; </script>";
+        header("Location: index.php");
+      }else{
           // Redirect them to the login page
-          echo "<script type='text/javascript'> document.location = 'admin.php'; </script>";
-          header("Location: admin.php");
+          echo "<script type='text/javascript'> document.location = 'login.php'; </script>";
+          header("Location: login.php");
       }   
     // You'd put this code at the top of any "protected" page you create
-    // Always start this first
-      
-      include("db.php");
-      
     ?>
     <title>Admin - Splash and Smash</title>
     <link rel="icon" href="images/logo1.png" type="image/png" sizes="25x25">
@@ -36,7 +35,7 @@ session_start();
 </head>
 
 <body>
-<h2 style="display: inline-block">Welcome Administrator <?php echo $_SESSION["admin_id"] ?></h2>
+<h2 style="display: inline-block">Welcome Administrator <?php echo $_SESSION["user_id"] ?></h2>
 <a href="index.php" class='w3-button w3-blue' style="margin-top: 15px; margin-right: 15px;float:right">Visit site</a>
 <a href="logout.php" class='w3-button w3-green' style="margin-top: 15px; margin-right: 15px;float:right">LOGOUT</a>
     <center>

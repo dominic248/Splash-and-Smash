@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 02:26 PM
+-- Generation Time: Nov 03, 2019 at 09:56 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `book`
+-- Database: `park`
 --
 
 -- --------------------------------------------------------
@@ -42,27 +42,33 @@ CREATE TABLE `book` (
 --
 
 INSERT INTO `book` (`id`, `visitor_name`, `Vdate`, `total_tickets`, `adult`, `child`) VALUES
-(22, 'hfyhty', '10/07/2019', 2, 1, 1);
+(22, 'Sayli', '10/30/2019', 4, 2, 2),
+(30, 'Manita', '10/29/2019', 6, 2, 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `user`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE `user` (
+  `fname` varchar(15) DEFAULT NULL,
+  `lname` varchar(15) DEFAULT NULL,
+  `email` varchar(30) NOT NULL,
+  `passwd` varchar(100) DEFAULT NULL,
+  `phoneno` varchar(12) DEFAULT NULL,
   `userid` int(11) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
-  `username` varchar(50) NOT NULL,
-  `passwd` varchar(300) NOT NULL
+  `isadmin` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `user`
 --
 
-INSERT INTO `users` (`userid`, `name`, `username`, `passwd`) VALUES
-(1, 'Sayli', 'sayli0810', 'e10adc3949ba59abbe56e057f20f883e');
+INSERT INTO `user` (`fname`, `lname`, `email`, `passwd`, `phoneno`, `userid`, `isadmin`) VALUES
+('Sayli', 'Mhatre', 'sayli@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1234567890', 18, 1),
+('rahul', 'damn', 'rahul.cdesai@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '9870662032', 19, 0),
+('hkuhiku', 'hkuhkuh', 'dominicsilveira289@gmail.com', 'b923fe3697977da570d3d42bb7e895b6', '9594183245', 20, 0);
 
 --
 -- Indexes for dumped tables
@@ -75,11 +81,11 @@ ALTER TABLE `book`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `user`
 --
-ALTER TABLE `users`
+ALTER TABLE `user`
   ADD PRIMARY KEY (`userid`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -89,13 +95,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `user`
 --
-ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `user`
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

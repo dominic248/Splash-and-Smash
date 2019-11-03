@@ -1,2 +1,2 @@
 
-insert into users values(1,"Sayli","sayli0810",MD5('123456'));
+insert into user(fname,lname,email,passwd,phoneno) values("Sayli","Mhatre","sayli@gmail.com",MD5('123456'),'1234567890');
