@@ -110,24 +110,34 @@
 						</div>
 
 						<div class="collapse navbar-collapse " id="myNavbar">
-							<ul class="nav navbar-nav navbar-right">
-								<li class="active"><a href="#home" class="scroll wow fadeInRight"
-										data-wow-delay=".3s" >Home</a></li>
-								<li><a href="#about" class="scroll wow fadeInRight" data-wow-delay="0.7s">About Us</a>
+						<ul class="nav navbar-nav navbar-right">
+								<li class="active"><a href="index.php#home" class=" wow fadeInRight"
+										data-wow-delay=".3s">Home</a></li>
+								<li><a href="index.php#about" class=" wow fadeInRight" data-wow-delay="0.7s">About
+										Us</a>
 								</li>
 								<li><a href="onlinebooking.php" class="wow fadeInRight" data-wow-delay="2.4s">Online
 										Booking</a></li>
-								<li><a href="#timing" class="scroll wow fadeInRight" data-wow-delay="1.1s">Timings</a>
+								<li><a href="index.php#timing" class=" wow fadeInRight"
+										data-wow-delay="1.1s">Timings</a>
 								</li>
-								<li><a href="#facilities" class="scroll wow fadeInRight"
+								<li><a href="index.php#facilities" class=" wow fadeInRight"
 										data-wow-delay="1.4s">Facilities</a></li>
-								<li><a href="#price" class="scroll wow fadeInRight" data-wow-delay="1.7s">Ticket
+								<li><a href="index.php#price" class=" wow fadeInRight" data-wow-delay="1.7s">Ticket
 										Price</a></li>
-								<li><a href="#gallery" class="scroll wow fadeInRight" data-wow-delay="2.1s">Gallery</a>
+								<li><a href="index.php#gallery" class=" wow fadeInRight"
+										data-wow-delay="2.1s">Gallery</a>
 								</li>
-								<li><a href="login.php" class="wow fadeInRight" data-wow-delay="2.8s">Login</a>
-								</li>
-								
+								<?php
+									if ( isset( $_SESSION['user_id'] ) ) {
+										echo "<li><a href='logout.php' class='wow fadeInRight' data-wow-delay='2.8s'>Logout</a>
+										</li>";
+									} else {
+										echo "<li><a href='login.php' class='wow fadeInRight' data-wow-delay='2.8s'>Login</a>
+										</li>";
+									} 
+								?>
+
 							</ul>
 						</div>
 					</div>

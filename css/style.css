@@ -1511,9 +1511,7 @@ ul.social li a.youtube:hover {
         top: 14%;
         padding: 1.5em 0;
     }
-}
 
-@media screen and (max-width:736px) {
     .header {
         height: 450px;
     }

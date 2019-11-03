@@ -207,6 +207,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 							
 							<div class="clearfix"> </div>
 						</div>
+						<br>
 						<div class="divide">
                             <div class="field">
 								<h5>Password</h5>
