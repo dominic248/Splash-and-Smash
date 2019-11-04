@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-	<title>Splash and Smash</title>
+	<title>Splash And Smash</title>
 	<style>
 		#grad1 {
 			height: 100px;
@@ -315,7 +315,7 @@ session_start();
 								<section class="grid1a">
 									<section class="para-a">
 										<h4>One Person</h4>
-										<h5> <span>$</span>65</h5>
+										<h5> <span>₹</span>65</h5>
 										<p>Fun as You LIke</p>
 										<p>Only place in the World</p>
 									</section>
@@ -340,7 +340,7 @@ session_start();
 								<section class="grid2a">
 									<section class="para-a">
 										<h4>One Child</h4>
-										<h5> <span>$</span>40</h5>
+										<h5> <span>₹</span>40</h5>
 										<p>Fun as You LIke</p>
 										<p>Only place in the World</p>
 									</section>
@@ -365,7 +365,7 @@ session_start();
 								<section class="grid3a">
 									<section class="para-a">
 										<h4>Four Persons</h4>
-										<h5> <span>$</span>199</h5>
+										<h5> <span>₹</span>199</h5>
 										<p>Fun as You LIke</p>
 										<p>Only place in the World</p>
 									</section>

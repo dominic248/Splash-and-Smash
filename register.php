@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-	<title>Online Booking - Splash and Smash</title>
+	<title>Register | Splash And Smash</title>
 	<style>
 		#grad1 {
 			height: 100px;

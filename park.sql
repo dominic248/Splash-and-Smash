@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2019 at 09:56 PM
+-- Generation Time: Nov 04, 2019 at 09:46 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.1.32
 
@@ -30,20 +30,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book` (
   `id` int(11) NOT NULL,
+  `userid` int(11) NOT NULL,
+  `phoneno` varchar(12) NOT NULL,
   `visitor_name` varchar(100) NOT NULL,
   `Vdate` varchar(100) NOT NULL,
   `total_tickets` int(255) NOT NULL,
   `adult` int(255) NOT NULL,
-  `child` int(255) NOT NULL
+  `child` int(255) NOT NULL,
+  `delrequest` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `visitor_name`, `Vdate`, `total_tickets`, `adult`, `child`) VALUES
-(22, 'Sayli', '10/30/2019', 4, 2, 2),
-(30, 'Manita', '10/29/2019', 6, 2, 4);
+INSERT INTO `book` (`id`, `userid`, `phoneno`, `visitor_name`, `Vdate`, `total_tickets`, `adult`, `child`, `delrequest`) VALUES
+(32, 18, '1234567890', 'Sayli Mhatre', '2019-11-14', 1, 1, 0, 0),
+(33, 18, '1234567890', 'Sayli Mhatre', '2019-11-12', 2, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -68,7 +71,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`fname`, `lname`, `email`, `passwd`, `phoneno`, `userid`, `isadmin`) VALUES
 ('Sayli', 'Mhatre', 'sayli@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1234567890', 18, 1),
 ('rahul', 'damn', 'rahul.cdesai@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '9870662032', 19, 0),
-('hkuhiku', 'hkuhkuh', 'dominicsilveira289@gmail.com', 'b923fe3697977da570d3d42bb7e895b6', '9594183245', 20, 0);
+('hkuhiku', 'hkuhkuh', 'jgjuyjuyj9@gmail.com', 'b923fe3697977da570d3d42bb7e895b6', '9594183245', 20, 0);
 
 --
 -- Indexes for dumped tables
@@ -95,7 +98,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user`

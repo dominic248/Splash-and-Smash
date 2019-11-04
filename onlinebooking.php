@@ -1,8 +1,11 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
 <head>
-	<title>Online Booking - Splash and Smash</title>
+	<title>Online Booking | Splash And Smash</title>
 	<style>
 		#grad1 {
 			height: 100px;
@@ -89,7 +92,17 @@
 </head>
 
 <body background="about.gif">
-
+<?php
+  if ( isset( $_SESSION['user_id'] ) ) {
+	  // Grab user data from the database using the user_id
+	  // Let them access the "logged in only" pages
+	  
+  } else {
+	  // Redirect them to the login page
+	  echo "<script type='text/javascript'> document.location = 'login.php'; </script>";
+	  header("Location: login.php");
+  } 
+?>
 	<!-- Header Starts -->
 
 
@@ -153,25 +166,10 @@
 				<h3>Online Ticket Booking </h3>
 				<div class="main">
 					<div class="facts">
+						
 						<div class="divide">
-							<div class="field">
-								<h5>Visitor Name </h5>
-								<input type="text" id="vName" value="" onfocus="this.value = '';" pattern="[A-Za-z]{1,}"
-									title="Enter a valid Name!"  placeholder="Name" required="">
-								<label class="error">Invalid Name field!</label>
-							</div>
 							
-							<div class="clearfix"> </div>
-						</div>
-						<div class="divide">
-							<div class="field1">
-								<h5>Phone Number </h5>
-								<input type="text" value="" name="phoneno" placeholder="Phone Number" maxlength="10" 
-									onKeyDown="phoneNoPreValidation()" name="phoneno" pattern="[0-9]{10}"
-									title="Enter a valid Phone Number!" required="">
-									<label class="error">Invalid Phone Number field!</label>
-							</div>
-							<div class="field2">
+							<div class="field">
 								<h5>Date of Visit </h5>
 								<input class="date" id="datepicker" type="date" value="" onfocus="this.value = '';"
 									required="">
@@ -179,7 +177,6 @@
 							<div class="clearfix"> </div>
 						</div>
 						<div class="reservation">
-							
 								<div class="columns">
 									<h5>Total Tickets</h5>
 									<select class="custom-select" id="tickets">
@@ -275,17 +272,20 @@
 			</div>
 		</div>
 	</div> <!-- Contact Ends -->
-	<script src="js/form.js"></script>
+	<script></script>
+	<script src="js/form.js" type="text/javascript" ></script>
 	<script>
-		var date = new Date();
-    date.setDate(date.getDate() + 1);
-    document.getElementById("datepicker").setAttribute("min",date.toISOString().split("T")[0])
+		$(document).ready(function () {
+			var date = new Date();
+			date.setDate(date.getDate() + 1);
+			document.getElementById("datepicker").setAttribute("min",date.toISOString().split("T")[0])
+		})
 		function clearBookForm(){
 			$("#vName").val("");
 			$("#datepicker").val(null);
-			$("#tickets").val(null);
-			$("#adult").val(null);
-			$("#child").val(null);
+			$("#tickets").val(0);
+			$("#adult").val(0);
+			$("#child").val(0);
 		}
 		function book() {
 			if ($("#btnSubmit").val() == "Book") {
@@ -293,7 +293,9 @@
 					type: "POST",
 					url: "saveBookings.php",
 					data: {
-						vName: $("#vName").val(),
+						userid: <?php echo $_SESSION['user_id'] ?>,
+						phoneno: "<?php echo $_SESSION['user_phone'] ?>",
+						vName: "<?php echo $_SESSION['user_name'] ?>",
 						datepicker: $("#datepicker").val(),
 						tickets: $("#tickets").val(),
 						adult: $("#adult").val(),
@@ -310,7 +312,7 @@
 							alert("Ticket Booking Updated Successfully!");
 							clearBookForm();
 						} else if ($.trim(response) == "deleted") {
-							alert("Ticket Booking Cancelled Successfully!");
+							alert("Cancel Ticket Booking request has been sent!");
 							clearBookForm();
 						}else if ($.trim(response) == "incorrect") {
 							alert("Invalid Ticket Entry!");

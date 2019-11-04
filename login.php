@@ -13,8 +13,11 @@ if ( isset( $_POST['signinbtn'] ) ) {
         $user = $result->fetch_object();
         // Verify user password and set $_SESSION
         if ( md5($_POST['passwd']) == $user->passwd ) {
-			$_SESSION['user_id'] = $user->email;
+			$_SESSION['user_email'] = $user->email;
+			$_SESSION['user_id'] = $user->userid;
 			$_SESSION['isadmin'] = $user->isadmin;
+			$_SESSION['user_name'] = $user->fname." ".$user->lname;
+			$_SESSION['user_phone'] = $user->phoneno;
             echo "<script>console.log('".$_SESSION['user_id']."');</script>";
             echo "<script type='text/javascript'> document.location = 'adminpanel.php'; </script>";
             header("location:adminpanel.php"); 
@@ -29,7 +32,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 <html>
 
 <head>
-	<title>Online Booking - Splash and Smash</title>
+	<title>Login | Splash And Smash</title>
 	<style>
 		#grad1 {
 			height: 100px;
