@@ -11,19 +11,23 @@ if ( isset( $_POST['signinbtn'] ) ) {
         $stmt->execute();
         $result = $stmt->get_result();
         $user = $result->fetch_object();
-        // Verify user password and set $_SESSION
-        if ( md5($_POST['passwd']) == $user->passwd ) {
-			$_SESSION['user_email'] = $user->email;
-			$_SESSION['user_id'] = $user->userid;
-			$_SESSION['isadmin'] = $user->isadmin;
-			$_SESSION['user_name'] = $user->fname." ".$user->lname;
-			$_SESSION['user_phone'] = $user->phoneno;
-            echo "<script>console.log('".$_SESSION['user_id']."');</script>";
-            echo "<script type='text/javascript'> document.location = 'adminpanel.php'; </script>";
-            header("location:adminpanel.php"); 
-        }else{
-            echo "<script>alert('Invalid Login Details!');</script>";
-        }
+		// Verify user password and set $_SESSION
+		if(isset($user)){
+			if ( md5($_POST['passwd']) == $user->passwd ) {
+				$_SESSION['user_email'] = $user->email;
+				$_SESSION['user_id'] = $user->userid;
+				$_SESSION['isadmin'] = $user->isadmin;
+				$_SESSION['user_name'] = $user->fname." ".$user->lname;
+				$_SESSION['user_phone'] = $user->phoneno;
+				echo "<script>console.log('".$_SESSION['user_id']."');</script>";
+				echo "<script type='text/javascript'> document.location = 'adminpanel.php'; </script>";
+				header("location:adminpanel.php"); 
+			}else{
+				echo "<script>alert('Invalid Login Details!');</script>";
+			}
+		}else{
+			echo "<script>alert('Invalid Login Details!');</script>";
+		}
     }
     mysqli_close($link);
 }
@@ -192,14 +196,15 @@ if ( isset( $_POST['signinbtn'] ) ) {
 		</div>
 	</div> <!-- Header Ends -->
     
-
+	<main>
 <div class="container">
     
 			<div class="booking-padding">
-				<h3>Login</h3>
+				
 				<div class="main">
                     <form method="post">
 					<div class="facts">
+					<h3>Login</h3>
 						<div class="divide">
 							<div class="field">
 								<h5>E-Mail</h5>
@@ -230,6 +235,7 @@ if ( isset( $_POST['signinbtn'] ) ) {
 				</div>
 			</div>
         </div>
+		</main>
     <!-- Contact Starts -->
 <div class="contact" id="contact">
 		<div class="container">

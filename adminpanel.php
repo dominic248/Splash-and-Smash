@@ -33,15 +33,19 @@ session_start();
         .search, .nosearch{
             display:table-row
         }
+        input:focus{
+            outline: none;
+        }
     </style>
 </head>
 
 <body>
-<h2 style="display: inline-block">Welcome Administrator <?php echo $_SESSION["user_name"] ?></h2>
+<main>
+<h2 style="display: inline-block"><mark>Welcome Administrator <bdi><?php echo $_SESSION["user_name"] ?></bdi></mark></h2>
 <a href="index.php" class='w3-button w3-blue' style="margin-top: 15px; margin-right: 15px;float:right">Visit site</a>
 <a href="logout.php" class='w3-button w3-green' style="margin-top: 15px; margin-right: 15px;float:right">LOGOUT</a>
 <div style="margin:10px">
-<input class="input-text" type="text" id="search-input"  placeholder="Search" style="background: aliceblue;color:black;width:100%" name="search">
+<input class="input-text" type="text" id="search-input"  placeholder="Search" style="background: aliceblue;color:black;width:100%;padding:5px; border-radius:10px" name="search">
 </div>
     <center>
         <table id="demo" class="w3-table-all w3-hoverable" style="display: table;background-color:white">
@@ -82,6 +86,7 @@ session_start();
                 
         </table>
     </center>
+    </main>
     <script src="js/jquery.min.js"></script>
     <script>
         

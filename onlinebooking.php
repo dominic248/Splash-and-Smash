@@ -159,7 +159,7 @@ session_start();
 			</div> <!-- Menu Ends -->
 		</div>
 	</div> <!-- Header Ends -->
-
+	<main>
 <div class="booking" id="booking">
 		<div class="container">
 			<div class="booking-padding">
@@ -221,7 +221,7 @@ session_start();
 			</div>
 		</div>
 	</div>
-    
+    </main>
 <!-- Contact Starts -->
 <div class="contact" id="contact">
 		<div class="container">

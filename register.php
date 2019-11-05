@@ -118,7 +118,14 @@ if ( isset( $_SESSION['user_id'] ) ) {
 if ( isset( $_POST['signupbtn'] ) ) {
     if ( isset( $_POST['email'] ) && isset( $_POST['passwd'] )  && isset( $_POST['fname'] )  && isset( $_POST['lname'] )  && isset( $_POST['phoneno'] ) ) {
         // Getting submitted user data from database   
-        $email=$_POST['email'];
+		$email=$_POST['email'];
+		$sql = "SELECT email FROM user where email='$email'";
+        $result = mysqli_query($link, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+               echo "<script type='text/javascript'>alert('Email ID has already been taken! Please choose another Email ID!')</script>";
+            }
+        } 
         $passwd=md5($_POST['passwd']);
         $fname=$_POST['fname'];
         $lname=$_POST['lname'];
@@ -194,14 +201,16 @@ $link->close();
 		</div>
 	</div> <!-- Header Ends -->
 
-
+	<main>
 	<div class="container">
 
 		<div class="booking-padding">
-			<h3>Register</h3>
+			
 			<div class="main">
 				<form method="post">
+				
 					<div class="facts">
+					<h3>Register</h3>
 						<div class="divide">
 							<div class="field1">
 								<h5>First name</h5>
@@ -232,7 +241,7 @@ $link->close();
 						<div class="divide">
 							<div class="field">
 								<h5>E-mail</h5>
-								<input type="text" value="" name="email" placeholder="E-mail" required="">
+								<input type="email" value="" name="email" placeholder="E-mail" required="">
 								<label class="error">Invalid E-mail field!</label>
 							</div>
 
@@ -258,6 +267,7 @@ $link->close();
 			</div>
 		</div>
 	</div>
+	</main>
 	<!-- Contact Starts -->
 	<div class="contact" id="contact">
 		<div class="container">

@@ -28,6 +28,12 @@ session_start();
 		.wow{
 			visibility:visible !important;
 		}
+		details summary::-webkit-details-marker {
+			display:none;
+		}
+		summary{
+			outline:none;
+		}
 	</style>
 	<!--for-mobile-apps-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -146,7 +152,7 @@ session_start();
 			</div> <!-- Menu Ends -->
 		</div>
 	</div> <!-- Header Ends -->
-
+<main>
 	<!--  About Starts -->
 	<div class="about" id="about">
 		<div class="container">
@@ -207,11 +213,6 @@ session_start();
 		</table>
 	</center>
 	
-	
-
-	
-
-
 	<script>
 		function loadXMLDoc() {
 			if(document.getElementById("demo").style.display=="none"){
@@ -246,45 +247,57 @@ session_start();
 
 				<div class="up-info">
 					<div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 w3-info info1">
-						<div class="icon hovereffect">
+					<details>
+					<summary><div class="icon hovereffect">
 							<i class="icon1"> </i>
 						</div>
-						<h5>Food Court</h5>
+						
+						<h5>Food Court</h5></summary>
 						<p>A food court is generally an indoor plaza or common area within a facility that is contiguous
 							with the counters of multiple food vendors and provides a common area for self-serve dinner.
 						</p>
+						</details>
 					</div>
 
 					<div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 w3-info info2">
-						<div class="icon hovereffect">
+					<details>
+					<summary><div class="icon hovereffect">
 							<i class="icon2"> </i>
 						</div>
-						<h5>Spa Area</h5>
+						
+						<h5>Spa Area</h5></summary>
 						<p>A spa is a location where mineral-rich spring water (and sometimes seawater) is used to give
 							medicinal baths. Spa towns or spa resorts (including hot springs resorts) typically offer
 							various health treatments, which are also known as balneotherapy.</p>
+							</details>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
 
 				<div class="down-info">
 					<div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 w3-info info3">
-						<div class="icon hovereffect">
+					<details>
+					<summary><div class="icon hovereffect">
 							<i class="icon3"> </i>
 						</div>
-						<h5>Dormitory</h5>
+						
+						<h5>Dormitory</h5></summary>
 						<p>A dormitory is a building primarily providing sleeping and residential quarters for large
 							numbers of people such as boarding school, high school, college or university students. In
 							some countries, it can also refer to a room containing several beds accommodating people.
 						</p>
+						</details>
 					</div>
 
 					<div class="col-xs-3 col-sm-3 col-md-6 col-lg-6 w3-info info4">
-						<div class="icon hovereffect">
+					<details>
+					<summary><div class="icon hovereffect">
 							<i class="icon4"> </i>
 						</div>
-						<h5>Lockers</h5>
+						
+						<h5>Lockers</h5></summary>
 						<p>A locker is a small compartment that is used to store things such as books, coats, etc.</p>
+						</details>
 					</div>
 					<div class="clearfix"> </div>
 				</div>
@@ -497,7 +510,7 @@ session_start();
 	<!-- Ticket Booking -->
 
 
-
+	</main>
 
 	<!-- Contact Starts -->
 	<div class="contact" id="contact">
