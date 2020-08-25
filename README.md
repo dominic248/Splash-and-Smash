@@ -6,4 +6,5 @@ Frontend and Dynamic backend PHP Functionality. The technologies added to this e
 ## Contributors:
 - [Dominic Silveira]( https://github.com/dms24081999 )
 - [Rahul Shirolkar]( https://github.com/Rahul-27-hub )
+- [Manita Pasi](  )
 - [Sayli Mhatre]( https://github.com/Sayli-08 )
